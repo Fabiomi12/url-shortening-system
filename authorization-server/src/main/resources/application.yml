@@ -33,9 +33,6 @@ spring:
                 - "client_secret_basic"
               authorization-grant-types:
                 - "client_credentials"
-              scopes:
-                - "read"
-                - "write"
 
 springdoc:
   swagger-ui:

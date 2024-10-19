@@ -28,10 +28,7 @@ public class OpenAPIConfig {
                                 .flows(new OAuthFlows()
                                         .clientCredentials(new OAuthFlow()
                                                 .tokenUrl("http://localhost:9000/oauth2/token")
-                                                .scopes(new Scopes()
-                                                        .addString("read", "read scope")
-                                                        .addString("write", "write scope")
-                                                ))
+                                        )
                                 )
                         ))
                 .addSecurityItem(new SecurityRequirement().addList("oauth2"));
