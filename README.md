@@ -1,21 +1,25 @@
-# URL Shortener with OAuth2
+# URL Shortener with OAuth2 (Code Challenge)
 
 A multi-module Spring Boot application consisting of:
 - Authorization Server: OAuth2 authentication service
 - URL Shortener: URL shortening service with OAuth2 authentication
 
-## Prerequisites
+## Tech Stack
 
 - Java 21
-- Gradle
+- Spring Boot 3.3.4
+- Spring Security with OAuth2
+- SpringDoc OpenAPI
 - PostgreSQL
+- Lombok
+- Gradle (Multi-module project)
 
 ## Configuration
 
-1. Create two PostgreSQL databases:
-```bash
-createdb authorization_server
-createdb url_shortener
+1. Database Setup
+```sql
+CREATE DATABASE authorization_server;
+CREATE DATABASE url_shortener;
 ```
 
 2. Configure database connections in each module's `application.properties`:
