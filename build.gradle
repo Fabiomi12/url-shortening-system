@@ -43,14 +43,3 @@ subprojects {
         useJUnitPlatform()
     }
 }
-
-tasks.register("runModulesSequentially") {
-    dependsOn(":authorization-server:bootRun")
-
-    doLast {
-        println 'Waiting for authorization-server to initialize...'
-        sleep(5000)
-    }
-
-    finalizedBy(":url-shortener:bootRun")
-}
