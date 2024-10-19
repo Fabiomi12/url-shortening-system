@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ControllerExceptionHandlerTest {
 
@@ -23,6 +24,7 @@ class ControllerExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = exceptionHandler.handleGlobalException(exception);
 
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("An unexpected error occurred", responseEntity.getBody().getMessage());
         assertEquals(500, responseEntity.getBody().getStatus());
     }
@@ -33,6 +35,7 @@ class ControllerExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = exceptionHandler.handleUrlNotFoundException(exception);
 
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("No URL found for hash: test", responseEntity.getBody().getMessage());
         assertEquals(404, responseEntity.getBody().getStatus());
     }
@@ -43,6 +46,7 @@ class ControllerExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = exceptionHandler.handleForbiddenUserAction(exception);
 
         assertEquals(HttpStatus.FORBIDDEN, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("Forbidden action", responseEntity.getBody().getMessage());
         assertEquals(403, responseEntity.getBody().getStatus());
     }
@@ -53,6 +57,7 @@ class ControllerExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = exceptionHandler.handleUrlAlreadyExistsException(exception);
 
         assertEquals(HttpStatus.CONFLICT, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("An shortened url already exists that points to provided long url.", responseEntity.getBody().getMessage());
         assertEquals(409, responseEntity.getBody().getStatus());
     }
@@ -63,6 +68,7 @@ class ControllerExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = exceptionHandler.handleApiException(exception);
 
         assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("API error", responseEntity.getBody().getMessage());
         assertEquals(400, responseEntity.getBody().getStatus());
     }
