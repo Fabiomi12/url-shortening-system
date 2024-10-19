@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          url-shortener:
+            client-id: url-shortener
+            client-secret: 'secret'
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+        provider:
+          url-shortener:
+            issuer-uri: http://localhost:9000
