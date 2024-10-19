@@ -7,9 +7,6 @@ logging:
 
 spring:
   security:
-    user:
-      name: user
-      password: password
     oauth2:
       authorizationserver:
         client:
@@ -28,3 +25,21 @@ spring:
                 - "openid"
                 - "profile"
             require-authorization-consent: false
+          swagger-ui:
+            registration:
+              client-id: "swagger-ui"
+              client-secret: "{noop}swagger-secret"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "client_credentials"
+              scopes:
+                - "read"
+                - "write"
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: swagger-ui
+      client-secret: swagger-secret
+      use-basic-authentication-with-access-code-grant: true

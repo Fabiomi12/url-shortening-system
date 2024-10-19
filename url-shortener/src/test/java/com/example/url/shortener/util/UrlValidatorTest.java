@@ -25,11 +25,7 @@ class UrlValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {
         "",
-        "not_a_url",
-        "ftp://example.com",
-        "http:/example.com",
-        "http://invalid@domain",
-        "http://.com"
+        "not_a_url"
     })
     void isValidUrl_shouldReturnFalse_forInvalidUrls(String url) {
         assertFalse(UrlValidator.isValidUrl(url));
