@@ -16,6 +16,12 @@ subprojects {
         mavenCentral()
     }
 
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
